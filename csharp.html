@@ -8,41 +8,44 @@
     <title>C#</title>
     <style>
         @import url("style.css");
-        section {
+
+        body {
+            height: 100vh;
+        }
+
+        .textonly {
             display: grid;
             text-align: center;
             height: 84vh;
             width: 100%;
+            align-items: center;
             color: #fff;
+            text-shadow: 1px 1px 2px #ee7752;
+            font-weight: bold;
+            position: sticky;
+            transform: translate(0%, -100%);
+
+        }
+
+        .aurora {
+            display: grid;
+            height: 84vh;
+            width: 100%;
             background: linear-gradient(-45deg,
                     #ee7752,
-                    #e73c7e,
-                    #23a6d5,
-                    #23d5ab);
-            background-size: 400% 400%;
+                    #e73c3c,
+                    #ecd79b,
+                    #ffffff);
+            background-size: 100% 100%;
+            filter: blur(8px);
+            opacity: 0.7;
             position: relative;
-            animation: change 10s ease-in-out infinite;
-            align-items: center;
         }
-        @keyframes change {
-            0% {
-                background-position: 0 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0 50%;
-            }
-        }
-
     </style>
 </head>
 
 <body>
-    <nav class="nav">
+    <nav class="nav_full">
         <ul>
             <li>
                 <a href="/projektas/index.html">PRADŽIA</a>
@@ -64,6 +67,32 @@
 
         </ul>
     </nav>
+<!-- For mobile -->
+    <input type="checkbox" id="nav_mobile_checkbox" class="nav_mobile_only" />
+    <label for="nav_mobile_checkbox" class="nav_mobile_only">
+        <i class="fas fa-bars" id="burger_btn"></i>
+        <i class="fas fa-times" id="cancel_btn"></i>
+    </label>
+    <nav class="nav_mobile">
+        <ul>
+            <li>
+                <a href="/projektas/index.html">PRADŽIA</a>
+            </li>
+            <li>
+                <a href="/projektas/cv.html">CV</a>
+            </li>
+
+
+            <li><a href="/projektas/html.html">DARBAI - HTML, CSS</a></li>
+            <li><a href="/projektas/js.html">DARBAI - JAVASCRIPT</a></li>
+            <li><a href="/projektas/c_sharp.html">DARBAI - C#</a></li>
+
+            <li>
+                <a href="/projektas/contacts.html">KONTAKTAI</a>
+            </li>
+        </ul>
+    </nav>
+<!-- End of for mobile -->
 
     <header class="small-header">
         <div class="bg-image"></div>
@@ -72,9 +101,11 @@
         </div>
     </header>
 
-<section>
-    To be continued...
-</section>
+    <section class="aurora">
+    </section>
+    <section class="textonly">
+        To be continued...
+    </section>
 
 </body>
 
