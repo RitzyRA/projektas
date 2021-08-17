@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,6 +7,7 @@
     <title>Sveiki!</title>
     <style>
         @import url("style.css");
+
         h1 {
             margin: 1.5rem;
         }
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="nav">
+    <nav class="nav_full">
         <ul>
             <li>
                 <a href="/projektas/index.html">PRADŽIA</a>
@@ -37,12 +37,38 @@
 
         </ul>
     </nav>
+    <!-- For mobile -->
+    <input type="checkbox" id="nav_mobile_checkbox" class="nav_mobile_only" />
+    <label for="nav_mobile_checkbox" class="nav_mobile_only">
+        <i class="fas fa-bars" id="burger_btn"></i>
+        <i class="fas fa-times" id="cancel_btn"></i>
+    </label>
+    <nav class="nav_mobile">
+        <ul>
+            <li>
+                <a href="/projektas/index.html">PRADŽIA</a>
+            </li>
+            <li>
+                <a href="/projektas/cv.html">CV</a>
+            </li>
 
-    <header>
-        <div class="bg-image"></div>
+
+            <li><a href="/projektas/html.html">DARBAI - HTML, CSS</a></li>
+            <li><a href="/projektas/js.html">DARBAI - JAVASCRIPT</a></li>
+            <li><a href="/projektas/c_sharp.html">DARBAI - C#</a></li>
+
+            <li>
+                <a href="/projektas/contacts.html">KONTAKTAI</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- End of for mobile -->
+
+    <header class="header_mobile">
+        <div class="bg-image index-bg"></div>
         <div class="bg-text">
             <h1>Mano vardas - Rita</h1>
-            <p>Ir aš esu būsima programuotoja!</p>
+            <p>Ir aš esu programuotoja!</p>
         </div>
     </header>
 
