@@ -12,8 +12,9 @@
         .gc::before {
             content: '';
             position: absolute;
-            top: 17%;
+            top: 9rem;
             left: 0;
+            bottom: 0;
             width: 100%;
             height: inherit;
             background: linear-gradient(123deg,
@@ -25,9 +26,7 @@
 
         .gc {
             display: grid;
-            height: 100%;
-            margin-top: 2%;
-            margin-bottom: 0;
+            margin: auto;
             justify-content: center;
             align-content: center;
             grid-template-areas:
@@ -42,24 +41,20 @@
             justify-items: left;
             align-items: top;
             padding: 1rem;
-            text-align: justify;
             color: rgba(160, 137, 127, 0.604);
-            text-shadow: 1px 1px rgba(255, 255, 255, 0.6);
-
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
             width: 100%;
-            height: 100%;
+            height: 75vh;
             border-radius: 25px;
-            margin: auto;
             position: relative;
-
             background: linear-gradient(135deg,
                     rgba(255, 255, 255, 0.6) 0%,
                     rgba(168, 145, 135, 0.233) 42%,
                     rgba(160, 137, 127, 0.604) 100%);
-
             text-align: center;
             justify-items: center;
             overflow: auto;
+            margin-top: 2rem;
         }
 
         section {
@@ -79,13 +74,14 @@
         .website:not(:visited),
         .website:visited {
             color: rgba(255, 255, 255, 0.6);
-            text-shadow: none;
+            text-shadow: 2px 2px 2px rgb(160, 137, 127);
             border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 10px;
             padding: 0.7rem;
-            box-shadow: 5px 5px rgb(160, 137, 127);
+            box-shadow: 5px 5px 2px rgb(160, 137, 127);
 
         }
+
         .website:hover {
             color: rgb(160, 137, 127);
             background-color: rgba(255, 255, 255, 0.6);
@@ -95,25 +91,19 @@
         .email:visited {
             /* text-decoration: underline; */
             color: rgb(160, 137, 127);
-            text-shadow: 1px 1px rgba(255, 255, 255, 0.6);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
         }
+
         .social {
             line-height: 10rem;
             padding: 0.3rem;
         }
-        .email:hover , .social:hover {
+
+        .email:hover,
+        .social:hover {
             color: rgba(255, 255, 255, 0.6);
             text-shadow: none;
         }
-
-                /* .Hgi:hover {
-            opacity: 1;
-            transition: 0.2s ease;
-        }
-
-        .Hgi:not(:hover) {
-            transition: 0.2s ease;
-        } */
 
         .address {
             grid-area: header1;
@@ -126,11 +116,48 @@
         .email_social {
             grid-area: header3;
         }
+
+        /* For mobile */
+        @media only screen and (max-width: 1100px) {
+            .gc::before {
+                background: none;
+            }
+
+            .gc {
+                display: grid;
+                height: 100%;
+                margin: 1.5rem;
+                justify-content: center;
+                grid-template-areas:
+                    "header1"
+                    "header2"
+                    "header3";
+                grid-template-columns: 100%;
+                grid-gap: 0.5rem 0;
+                overflow: auto;
+            }
+
+            .gi {
+                margin-top: 1rem;
+            }
+            .email {
+            font-size: 1.3rem;
+        }
+
+        }
+
+        /* For tablets */
+        @media only screen and (max-width: 1100px) and (min-width: 560px) {
+            .gc {
+                width: 50%;
+                margin: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <nav class="nav">
+    <nav class="nav_full">
         <ul>
             <li>
                 <a href="/projektas/index.html">PRADŽIA</a>
@@ -152,6 +179,32 @@
 
         </ul>
     </nav>
+    <!-- For mobile -->
+    <input type="checkbox" id="nav_mobile_checkbox" class="nav_mobile_only" />
+    <label for="nav_mobile_checkbox" class="nav_mobile_only">
+        <i class="fas fa-bars" id="burger_btn"></i>
+        <i class="fas fa-times" id="cancel_btn"></i>
+    </label>
+    <nav class="nav_mobile">
+        <ul>
+            <li>
+                <a href="/projektas/index.html">PRADŽIA</a>
+            </li>
+            <li>
+                <a href="/projektas/cv.html">CV</a>
+            </li>
+
+
+            <li><a href="/projektas/html.html">DARBAI - HTML, CSS</a></li>
+            <li><a href="/projektas/js.html">DARBAI - JAVASCRIPT</a></li>
+            <li><a href="/projektas/c_sharp.html">DARBAI - C#</a></li>
+
+            <li>
+                <a href="/projektas/contacts.html">KONTAKTAI</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- End of for mobile -->
 
     <header class="small-header">
         <div class="bg-image"></div>
@@ -163,7 +216,7 @@
         <section class="gi address">
             <article>
                 <i class="fas fa-map-marked-alt fa-4x" id="icon"></i>
-                <section>Gatvės g. 100-100, Kaunas, Lietuva</section>
+                <section>Kaunas, Lietuva</section>
                 <div class="mapouter">
                     <div class="gmap_canvas"><iframe width="100%" height="297" id="gmap_canvas"
                             src="https://maps.google.com/maps?q=Kaunas%2C%20Lithuania&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -193,7 +246,8 @@
                 <i class="fas fa-phone-alt fa-4x" id="icon"></i>
                 <section>+3706****370</section>
                 <i class="fas fa-globe-europe fa-4x" id="icon"></i>
-                <section><a href="https://ritzyra.github.io/projektas/index.html" class="website">RitzyRA website</a></section>
+                <section><a href="https://ritzyra.github.io/projektas/index.html" class="website">RitzyRA website</a>
+                </section>
             </article>
         </section>
         <section class="gi email_social">
@@ -202,7 +256,8 @@
                 <section><a href="sendto:vardas.pavarde@gmail.com" class="email">vardas.pavarde@gmail.com</a></section>
                 <a href="http://www.facebook.com" class="email social"><i class="fab fa-facebook-square fa-3x"></i></a>
                 <a href="http://www.twitter.com" class="email social"><i class="fab fa-twitter-square fa-3x"></i></a>
-                <a href="http://www.instagram.com" class="email social"><i class="fab fa-instagram-square fa-3x"></i></a>
+                <a href="http://www.instagram.com" class="email social"><i
+                        class="fab fa-instagram-square fa-3x"></i></a>
             </article>
         </section>
     </main>
